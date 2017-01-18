@@ -1,9 +1,13 @@
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBsrciFSZIHPIokQFpVQo6i4boOCSu33w8&callback=initMap"
-async defer></script>
+<script type="text/javascript">
+  $.getScript('/assets/crawls.js.erb',function(){
+    $(document).ready(ready);
+    $(document).on('page:load',ready);
+  });
+</script>
 <script type="text/javascript">
   var map;
   function initMap() {
-    map = new google.maps.Map(document.getElementById('map-box'), {
+    map = new google.maps.Map(document.getElementById('map-boxy'), {
       center: {lat: 45.5231, lng: -122.5965},
       zoom: 11,
       styles: [{"featureType":"all","stylers":[{"saturation":0},{"hue":"#e7ecf0"}]},{"featureType":"road","stylers":[{"saturation":-70}]},{"featureType":"transit","stylers":[{"visibility":"off"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"water","stylers":[{"visibility":"simplified"},{"saturation":-60}]}]
@@ -44,7 +48,7 @@ async defer></script>
 
 <h2 align="middle"><%= @crawl.name %> Crawl</h2>
 <div class="row">
-  <div class="col-md-2">
+  <div class="col-sm-3">
     <div class="btn-group-vertical verts">
 
         <button id="All" class="filter btn  btn-all active">View All</button>
@@ -67,14 +71,8 @@ async defer></script>
 
         <button id="Other" class="filter btn btn-other ">Other</button>
       </div>
-    </div>
-    <div class="col-md-8">
-      <div id="map-box" style="background-color:green;">
-
-      </div>
-    </div>
-    <div class="col-md-2">
-      <h4>Your Selected Locations <span class="text-muted">You may have up to 8 locations</span></h4>
+      <hr style="margin-left:4%;">
+      <h4 style="text-align:center;margin-left:2%;">Your Selected Locations <span class="text-muted">You may have up to 8 locations</span></h4>
       <ol id="results-list">
         <% @crawl.stops.each do |id| %>
         <% location = Location.find(id) %>
@@ -82,6 +80,11 @@ async defer></script>
         <%end%>
       </ol>
         <%= link_to "Create This Crawl", directions_path(@crawl), :class => "btn-success crawl-create"%>
+    </div>
+    <div class="col-sm-9">
+      <div id="map-boxy" style="background-color:green;">
+
+      </div>
     </div>
   </div>
 
