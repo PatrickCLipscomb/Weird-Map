@@ -4,7 +4,7 @@ The Portland Weird Map is a geographical display of "weird" locations around Ore
 
 Find *Weird Map* live on Heroku.  
 ```
-https://weirdmap.herokuapp.com/
+https://weird-map.herokuapp.com/
 ```
 
 ## Technologies Used
