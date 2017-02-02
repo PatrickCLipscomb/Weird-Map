@@ -21,7 +21,7 @@ function dataMap(map) {
   console.log(featureNumber)
   console.log(getColor(featureNumber))
     var neighborhood = new google.maps.Data();
-    neighborhood.loadGeoJson('https://gist.githubusercontent.com/SamiAljamal/6dc9409bbfa932e21669f53e1de7672b/raw/962ec9c9e63a0bf3e946fb59f980dabb38a78625/porltand.json');
+    neighborhood.loadGeoJson('https://gist.githubusercontent.com/PatrickCLipscomb/7ac440d386ddd14ac93004531c6bb8fe/raw/6bb2a4fc4229b3e6cb08471a24bdc9f2023647fa/portlandBars.json');
     neighborhood.setStyle(function(feature) {
       return {
         fillColor: getColor(feature.getProperty('bars')),
